@@ -1,0 +1,66 @@
+<% layout('layout') -%>
+
+<div class="container" style="padding:100px">
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+        <fieldset>
+            
+            <% if (message.length > 0) { %>
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismmiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= message %>
+      </div>
+    <% } %>
+        <!-- Form Name -->
+        <legend style="text-align:center">Edit Your Profile</legend>
+
+        <!-- Text input-->
+        <div style="margin-top:50px"></div>    
+      
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          <input name="email" value="<%= user.email %>" class="form-control"  type="text" disabled>
+            </div>
+          </div>
+        </div>
+            
+        <div class="form-group">
+          <label class="col-md-4 control-label">Name</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input name="email" value="<%= user.profile.name %>" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Password</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
+          <input name="password" placeholder="Password" class="form-control" type="password">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+
+        </fieldset>
+    </form>
+</div>

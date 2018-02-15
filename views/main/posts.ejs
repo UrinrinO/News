@@ -1,0 +1,356 @@
+<% layout('layout') -%>
+
+<!-- End Header -->
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="listing-content">
+                    <div class="listing-title color-border-top">
+                        <h2 class="color-title pull-left">Posts</h2>
+                        <div class="bread-crumb pull-right">
+                            <ul class="list-inline-block">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>									
+                        </div>
+                    </div>
+                    
+                    <div class="post-box-listing listing1 margin-b20 border-bottom">
+                        <% for (var i = 0; i < posts.length; i++) { %>
+                        <div class="post-item">
+                            <div class="post-thumb">
+                                <div class="list-cat-btn">
+                                    <ul>
+                                        <li><a href="#" class="business-bg"><%= posts[i].title %></a></li>
+                                    </ul>
+                                </div>
+                                <div class="type-icon">
+                                    <i class="ion-ios-videocam"></i>
+                                </div>
+                                <a href="#"><img src="/post_images/<%= posts[i].id %>/<%= posts[i].image %>"  alt=""></a>
+                            </div>
+                            <div class="post-info">
+                                <a href="#"><b><%= posts[i].title %></b></a>
+                                <ul class="post-list-info">
+                                    <li>
+                                        <i class="ion-android-calendar"></i>
+                                        <span><%= posts[i].created %></span>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ion-chatbox-working"></i>
+                                            <span>05</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p><%= posts[i].desc %></p>
+                                <a href="/posts/<%= posts[i]._id %>" class="read-more">Read more</a>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>          
+            <div class="col-md-4">
+                <div class="trending home-title color-border-top ion-small margin-b30 drop-shadow">
+                    <h2 class="color-title">Editors Pick</h2>
+                    <div class="wrap-item" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1]]">
+                        <div class="post-box">
+                            <% for (var i = 0; i < posts.length; i++) { %>
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="/post_images/<%= posts[i].id %>/<%= posts[i].image %>" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <div class="list-cat-btn">
+                                        <ul>
+                                            <li><a href="#" class="fashion-bg"><%= posts[i].title %></a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#"><b><%= posts[i].desc %></b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span><%= posts[i].created %></span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <% } %>
+                            <!-- End Item -->
+                        </div>
+                        <div class="post-box">
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/120x80/worldnews_fashion-01.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <div class="list-cat-btn">
+                                        <ul>
+                                            <li><a href="#" class="fashion-bg">Fashion</a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#"><b>Bulum iaculis lacinia est.</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Item -->
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/120x80/worldnews_business-02.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <div class="list-cat-btn">
+                                        <ul>
+                                            <li><a href="#" class="business-bg">Business</a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#"><b>South African Garth Mulroy</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>14 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>07</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Item -->
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/120x80/worldnews_ittech-02.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <div class="list-cat-btn">
+                                        <ul>
+                                            <li><a href="#" class="tech-bg">IT-Tech</a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#"><b>Bulum iaculis lacinia est.</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>15</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Item -->
+                        </div>
+                    </div>
+                </div>
+                <div class="stay-with-us home-title color-border-top drop-shadow margin-b30">
+                    <h2 class="color-title">Stay with us</h2>
+                    <ul>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-facebook"></i></a>
+                                <p><strong>13,050</strong>Likes</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-twitter"></i></a>
+                                <p><strong>700</strong>Followers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-pinterest"></i></a>
+                                <p><strong>5,910</strong>Followers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-instagram"></i></a>
+                                <p><strong>436</strong>Followers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-vimeo"></i></a>
+                                <p><strong>980</strong>Subscribles</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-googleplus"></i></a>
+                                <p><strong>11,370</strong>Followers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-rss"></i></a>
+                                <p><strong>RSS</strong>Subscribles</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="glow-social">
+                                <a href="#"><i class="ion-social-linkedin"></i></a>
+                                <p><strong>3,450</strong>Followers</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cat-home3 listing-cat color-border-top margin-b30">
+                    <h2 class="color-title">Recent post</h2>
+                    <div class="post-box">
+                        <div class="post-item white">
+                            <div class="post-thumb">
+                                <div class="list-cat-btn">
+                                    <ul>
+                                        <li><a href="#" class="tech-bg">IT-Tech</a></li>
+                                        <li><a href="#" class="business-bg">Business</a></li>
+                                    </ul>
+                                </div>
+                                <div class="type-icon">
+                                    <i class="ion-image"></i>
+                                </div>
+                                <a href="#"><img src="images/listing/worldnews_fashion-01.jpg" alt=""></a>
+                            </div>
+                            <div class="post-info">
+                                <a href="#"><b>Business : Magazine Wordpress Theme by 7upTheme</b></a>
+                                <ul class="post-list-info">
+                                    <li>
+                                        <i class="ion-android-calendar"></i>
+                                        <span>20 Jun 2017</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ion-chatbox-working"></i>
+                                            <span>05</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p>Cliquam eget arcu magna, vel congue dui. Nunc auctor mauris tempor leo aliquam vel porta ante ...</p>
+                            </div>
+                        </div>
+                        <div class="square">
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/50x50/worldnews_business-03.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <a href="#"><b>Bulum iaculis lacinia est. Proin dictum</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/50x50/worldnews_business-04.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <a href="#"><b>Diana says: Vlogging saved my life Proin dictum elemntum</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/50x50/worldnews_business-07.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <a href="#"><b>Magalla Magazine - News and Business Blog Proin dictum elemntum</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="images/posts/50x50/worldnews_business-01.jpg" alt=""></a>
+                                </div>
+                                <div class="post-info">
+                                    <a href="#"><b>News and Business Blog Proin dictum elemntum velit.</b></a>
+                                    <ul class="post-list-info">
+                                        <li>
+                                            <i class="ion-android-calendar"></i>
+                                            <span>20 Jun 2017</span>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion-chatbox-working"></i>
+                                                <span>10</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>								
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-ads ads-style1 margin-b30 drop-shadow">
+                    <a href="#">
+                        <figure class="effect-bubba">
+                            <img src="images/ads/listing1-ads.jpg" alt="">
+                            <figcaption>
+                                <p class="learn-more hvr-shrink">Learn more</p>
+                            </figcaption>
+                        </figure>
+                    </a>		
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->

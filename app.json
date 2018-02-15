@@ -1,0 +1,8 @@
+{
+    "name": "Node.js Naija Wedding",
+    "description": "A wedding vendor website using Express & Node.js",
+    "repository": "https://github.com/UrinrinO/News",
+    "logo": "http://node-js-sample.herokuapp.com/node.svg"
+    "keywords": ["node", "express", "static"],
+    "image": "heroku/nodejs",
+}

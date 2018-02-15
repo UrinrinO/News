@@ -1,0 +1,137 @@
+<% layout('layout') -%>
+
+<div class="container" style="padding:100px">
+
+    <form class="well form-horizontal" action="/admin/edit-posts/<%= id %>" method="post"  id="contact_form" enctype="multipart/form-data">
+        <fieldset>
+        <!-- Form Name -->
+        <legend style="text-align:center">Edit Post</legend>
+
+        <!-- Text input-->
+        <div style="margin-top:50px"></div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Title</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+          <input name="title" placeholder="Title" value="<%= title %>" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Description</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                <input name="desc" placeholder="description" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Message</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon">M</span>
+                <textarea name="message" class="form-control" rows="10" cols="30">
+                </textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label for="">Category</label>
+            <select name="category" class="form-control">
+                <% categories.forEach(function(cat){ %>
+                    <option value="<%= cat.id %>"
+                    <% if (cat.id == category) { %>
+                    selected="selected"
+                    <% } %>        
+                    ><%= cat.title %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="">Upload Image</label>
+            <input type="file" class="form-control" name="image" id="img">
+            <img src="#" id="imgPreview" alt="">
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+            <label for="">Current Image</label>
+            <p>
+                <% if (image == "") { %>
+                <img id="noimage" src="/images/noimage.png" alt="">
+                <% } else {%>
+                <img id="noimage" src="/product_images/<%= id %>/<%= image %>" alt="">
+                <% } %>
+            </p>
+        </div>
+            
+        <hr>
+        <h3 class="page-header">Gallery</h3>
+
+        <ul class="gallery">
+            <% galleryImages.forEach(function(image){ %>
+            <% if (image != "thumbs") { %>
+            <li>
+                <img src="/post_images/<%= id %>/gallery/thumbs/<%= image %>" alt="">&nbsp;
+                <a class="confirmDeletion" href="/admin/posts/delete-image/<%= image %>?id=<%= id %>">delete</a>
+            </li>
+            <% } %>
+            <% }); %>
+        </ul>
+
+        <br><br>
+        <form action="/admin/products/product-gallery/<%= id %>" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+            <div class="fallback">
+                <input type="file" name="file" multiple>
+                <input type="submit" value="Upload">
+            </div>
+        </form>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+        <script>            
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+
+        </fieldset>
+    </form>
+
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#img").change(function() {
+        readURL(this);
+    });
+
+</script>
+
+</div>

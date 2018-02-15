@@ -1,0 +1,113 @@
+<% layout('layout') -%>
+
+<div class="container" style="padding:100px">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form" enctype="multipart/form-data">
+        <fieldset>
+        <!-- Form Name -->
+        <legend style="text-align:center">Add An Article</legend>
+
+        <!-- Text input-->
+        <div style="margin-top:50px"></div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Title</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+          <input name="title" placeholder="Title" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Description</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                <input name="desc" placeholder="description" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+            
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Price</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                <input name="price" placeholder="price(N)" class="form-control"  type="number">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Message</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon">M</span>
+                <textarea name="message" class="form-control" rows="10" cols="30">
+                </textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Category</label>
+            <div class="col-md-4 inputGroupContainer">
+                <select name="category" class="form-control">
+                    <% categories.forEach(function(category){ %>
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                    <% }); %>
+                </select>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Image</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                <input name="image" id="img" class="form-control" type="file">
+            </div>
+            <img src="#" id="imgPreview" alt="">
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+
+        </fieldset>
+    </form>
+
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#imgPreview").attr('src', e.target.result).width(100).height(100);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#img").change(function() {
+        readURL(this);
+    });
+
+</script>
+
+</div>
